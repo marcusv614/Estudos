@@ -6,6 +6,10 @@ import styles from "./Home.module.css";
 export function Home() {
   const [tarefas, setTarefas] = useState([]);
 
+  const excluirTarefa = (id) => {
+    setTarefas((tarefasAnteriores) => tarefasAnteriores.filter((tarefas) => tarefas.id != id))
+  } 
+
   function adicionarTarefa(titulo) {
     if (titulo.trim() === "") {
       return;
@@ -37,7 +41,7 @@ export function Home() {
 
         <TaskForm propAdicionarTarefa={adicionarTarefa}/>
 
-        <TaskList tarefas={tarefas} fliparConcluida={fliparConcluida} />
+        <TaskList tarefas={tarefas} fliparConcluida={fliparConcluida} excluirTarefa={excluirTarefa}/>
       </main>
     </>
   );

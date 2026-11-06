@@ -1,4 +1,4 @@
-export function TaskList({ tarefas, fliparConcluida }) {
+export function TaskList({ tarefas, fliparConcluida,excluirTarefa }) {
   return (
     <div>
       <ol>
@@ -11,6 +11,8 @@ export function TaskList({ tarefas, fliparConcluida }) {
               checked={task.concluida}
               onChange={() => fliparConcluida(task.id)}
             />
+            <button onClick={() => excluirTarefa(task.id)}
+            >Deletar</button>
           </li>
         ))}
       </ol>
